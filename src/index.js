@@ -17,6 +17,7 @@ class App extends React.Component {
     };
 
     this.handleTermChange = this.handleTermChange.bind(this);
+    this.handleShowTrending = this.handleShowTrending.bind(this);
   }
 
   openModal(gif) {
@@ -43,10 +44,21 @@ class App extends React.Component {
     });
   }
 
+  handleShowTrending() {
+    const url = `http://api.giphy.com/v1/gifs/trending?api_key=PAj6Ma5qZZWHqhIQTTQ6hZaZiqPuFi4O`;
+
+    request.get(url, (err, res) => {
+      this.setState({
+        gifs: res.body.data
+      })
+    });
+  }
+
   render() {
     return (
       <div>
-        <SearchBar onTermChange={ term => this.handleTermChange(term) } />
+        <SearchBar  onTermChange={ term => this.handleTermChange(term) }
+                    onShowTrending={this.handleShowTrending} />
         <GifList  gifs={this.state.gifs}
                   onGifSelect={ selectedGif => this.openModal(selectedGif) } />
         <GifModal modalIsOpen={this.state.modalIsOpen}
