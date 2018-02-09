@@ -2,7 +2,7 @@ import React from 'react';
 
 const GifsTemp = ({gifs}) => {
   const gifItems = gifs.map((gif) => {
-    return (
+    return(
       <li key={gif.id}><img src={gif.url} /></li>
     );
   });
