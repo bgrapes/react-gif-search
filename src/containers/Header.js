@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
@@ -7,14 +8,14 @@ class Header extends React.Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a href="/" className="navbar-brand">React Gif Search Engine</a>
+            <Link className="navbar-brand" to="/">React Gif Search Engine</Link>
           </div>
           <ul className="nav navbar-nav navbar-right">
             <li className="nav-item">
-              <a className="nav-link" href="/login">Login</a>
+              <Link className="nav-link" to="/login">Login</Link>
             </li>
-            <li> className="nav-item">
-              <a className="nav-link" href="/signup">Sign Up</a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">Sign Up</Link>
             </li>
           </ul>
         </div>
@@ -24,7 +25,7 @@ class Header extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return()
+  return {}
 }
 
 export default connect(mapStateToProps)(Header);
